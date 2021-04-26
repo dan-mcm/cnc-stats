@@ -1,5 +1,5 @@
 # C&C Tiberian Dawn - Tanks & Infantry
-Formatted from [Nyerguds](http://nyerguds.arsaneus-design.com/cnc95upd/inirules/units.ini).
+Formatted from the hardwork of [Nyerguds](http://nyerguds.arsaneus-design.com/cnc95upd/inirules/).
 
 This is an active work in progress and may have incorrect details - working to make it as accurate as possible.
 
@@ -29,7 +29,35 @@ The armor values in the below tables can be translated as follows:
 
 ## Weapon Warheads -v- Armor
 
-Different weapon projectiles deal different percentiles of damage against certain armor types. Let's take a look at a sample warhead detail:
+Different weapon projectiles deal different percentiles of damage against certain armor types.
+
+Let's start with taking a Humvee as our candidate. We can tell from the tables below (or checking the units.ini file) that Humvee uses a machinegun weapon. If we inspect the corresponding bullets.ini we can see that this type of damage is of warhead type SmallArms.
+
+```
+; normal machinegun
+[Invisible]
+Explosion=PIFF
+Warhead=SmallArms
+RotationSpeed=0
+BulletSpeed=-1
+Unknown5=0
+Unknown6=0
+AA=No
+Unknown8=0
+Inaccurate=No
+NoRotation=Yes
+Unknown11=0
+SmokeTrail=No
+Unknown13=0
+Invisible=Yes
+Unknown15=0
+Arcing=No
+High=No
+Image=50cal
+Unknown19=0
+```
+
+If we check the corresponding warheads.ini file under SmallArms we should see:
 
 ```
 [SmallArms]
@@ -53,7 +81,7 @@ This means that in the case of a unit that deals type SmallArms warhead damage:
 
 As a practical example let's takes a Humvee -v- a Minigunner.
 
-A humvee has a weapon of type 'Machinegun' if we consult the corresponding weapon.ini we can see it has a maximum possible damage of 15hp:
+A Humvee has a weapon of type 'Machinegun' if we consult the corresponding weapon.ini we can see it has a maximum possible damage of 15hp:
 
 ```
 ; Humvee/buggy/APC gun
