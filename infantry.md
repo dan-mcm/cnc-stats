@@ -1,6 +1,77 @@
 # C&C Tiberian Dawn - Tanks & Infantry
 Formatted from [Nyerguds](http://nyerguds.arsaneus-design.com/cnc95upd/inirules/units.ini).
 
+This is an active work in progress and may have incorrect details - working to make it as accurate as possible.
+
+## Key Descriptions
+
+**Faction**: Which factions can build the units, if neutral may be accessible to both factions but cannot be built in standard missions/multiplayer  
+**Unit/structure**: Name of the unit/structure  
+**Image**: Image of the unit/structure  
+**Cost**: Cost to produce the unit/structure  
+**HitPoints**: Number of HitPoints the unit/structure has  
+**Speed**: Speed of Unit  
+**Power**: Power Production/Cost of the building  
+**Weapon**: Name of Primary/Secondary Weapon  
+**Sight**: Vision radius of unit/structure  
+**Armor**: Class of armor for vehicle/unit. infantry default to 0.
+
+## Armor Types
+
+The armor values in the below tables can be translated as follows:
+
+0: Infantry (no armor)  
+1: Wood Armor  
+2: Light Armor  
+3: Medium Armor  
+4: Heavy Armor (is this right? what has this value?)  
+5: Invincible  
+
+## Weapon Warheads -v- Armor
+
+Different weapon projectiles deal different percentiles of damage against certain armor types. Let's take a look at a sample warhead detail:
+
+```
+[SmallArms]
+Spread=2
+TargetWalls=0
+TargetWood=0
+TargetTiberium=0
+InfantryDeath=0
+verses=256,128,144,64,64,0
+```
+
+A key note here is that in the verses section each value corresponds to an armor type: 256 -> 0, 128 -> 1, 144 -> 2, 64 -> 3, 64 -> 4, 0 -> 5.
+
+This means that in the case of a unit that deals type SmallArms warhead damage:
+* a 256/256 [100%] of possible damage is dealt against infantry
+* a 128/256 [50%] of possible damage is dealt against wood armor (1)
+* a 144/256 [~56%] of possible damage is dealt against light armor (2)
+* a 64/256 [25%] of possible damage is dealt against medium armor (3)
+* a 64/256 [25%] of possible damage is dealt against heavy armor (4)
+* a 0/256 [0%] of possible damage is dealt against invincible units (5)
+
+As a practical example let's takes a Humvee -v- a Minigunner.
+
+A humvee has a weapon of type 'Machinegun' if we consult the corresponding weapon.ini we can see it has a maximum possible damage of 15hp:
+
+```
+; Humvee/buggy/APC gun
+[Machinegun]
+Projectile=Invisible
+Damage=15
+ROF=30
+Range=4.00
+Report=Mgun11
+MuzzleFlash=MINIGUN-N
+```
+
+If we consult the SmallArms warhead details (as above), we can see that our humvee has a 256/256 [100%] chance of dealing damage against the minigunner (infantry). This would be calculated as a full 15 damage per hit.
+
+As a second example let's take a Humvee -v- a Humvee.
+
+In this case the enemy humvee has an armor type of 2 (light armor) meaning it will only take a 144/256 [~56% of possible max damage] which comes out to around 8.5 damage per hit.
+
 ## Unit Template & Descriptions
 
 ### Infantry
