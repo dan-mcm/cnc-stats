@@ -180,7 +180,7 @@ In this case the enemy humvee has an armor type of 2 (light armor) meaning it wi
 
  ### Walls
 | 🧱 Wall | 💰 Cost | ❤️ HitPoints |  🛡️ Armor |
-|-|-|-|-|-|
+|-|-|-|-|
 | Sandbag | $50 | 1 | 2 |
 | Chainlink | $75 | 1 | 2 |
 | Concrete | $100 | 1 | 2 |
