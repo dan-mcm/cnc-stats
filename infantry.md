@@ -129,7 +129,7 @@ In this case the enemy humvee has an armor type of 2 (light armor) meaning it wi
 | 🦂 | Bike | $500 | 160 | 1 | 40 | Rocket | 2 |30|
 | 🦂 | Arty | $450 | 75 | 2 | 12 | ArtilleryShell | 4 |150|
 | 🦂 | Light | $600 | 300 | 3 | 18 | LightCannon | 3 |25|
-| 🦂 | Flame |image | $800 | 300 | 3 | 18 | TankFlamer | 4 |50|
+| 🦂 | Flame | $800 | 300 | 3 | 18 | TankFlamer | 4 |50|
 | 🦂 | Stealth | $900 | 110 | 2 | 30 | Rocket | 4 |30?x2|
 | 🦂 | SSM | $750 | 120 | 2 | 18 | HonestJohn | 4 |100|
 | 🦅 & 🦂 | Harvester | $1400 | 600 | 2 | 12 | - | 2 |-|
